@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <script>
+    (function() {
+    // Список разрешенных доменов ВК, Дзена, поисковиков)
+    const allowedReferrers = ['vk.com', 'dzen.ru', 'yandex.ru', 'google.com'];
+    
+    // адрес страницы, с которой пришел юзер
+    const referrer = document.referrer.toLowerCase();
+    
+    // если реферер пустой (прямой заход) или его нет в списке разрешенных
+    const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
+
+    if (!isAllowed) {
+      // Если заход прямой или с «левого» сайта — заменяем всё содержимое страницы на пустоту
+      document.documentElement.innerHTML = "<html><body style='background:white;'></body></html>";
+    }
+    })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blacksprut зеркало в магазин</title>

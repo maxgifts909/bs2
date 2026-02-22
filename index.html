@@ -4,35 +4,6 @@
     <style id="anti-cheat-style">
         html { display: none !important; }
     </style>
-
-    <script>
-        (function() {
-            // Список разрешенных доменов (поисковики и соцсети)
-            const allowedSources = [
-                'yandex.ru', 'yandex.by', 'yandex.kz', 'yandex.com',
-                'google.com', 'google.ru',
-                'vk.com', 'dzen.ru'
-            ];
-
-            const ref = document.referrer.toLowerCase();
-            
-            // Проверка: есть ли хоть один разрешенный домен в реферере
-            const isFromAllowed = allowedSources.some(source => ref.includes(source));
-
-            // Если человек зашел НАПРЯМУЮ (ref == "") или с другого сайта
-            if (!isFromAllowed) {
-                
-                //Полностью очищаем документ
-                document.write(""); 
-            } else {
-                // Если всё хорошо — показываем сайт, удаляя скрывающий стиль
-                document.addEventListener("DOMContentLoaded", function() {
-                    const style = document.getElementById('anti-cheat-style');
-                    if (style) style.remove();
-                });
-            }
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blacksprut зеркало в магазин</title>
